@@ -1,0 +1,11 @@
+.row
+  .small-12.columns
+    %h1.text-center New Shirt
+    %nav{"aria-label" => "You are here:", :role => "navigation"}
+      %ul.breadcrumbs.callout
+        %li
+          =link_to "Shirts", shirts_path
+        %li
+          %span.show-for-sr Current:
+          New Shirt
+    = render "form"

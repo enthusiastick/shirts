@@ -1,0 +1,7 @@
+.row
+  .small-12.medium-5.small-centered.columns
+    =simple_form_for @shirt do |f|
+      =f.input :name, label: false, placeholder: "Name"
+      =f.file_field :picture
+      =f.input :description, input_html: { style: "height: 8rem;" }, label: false, placeholder: "Description"
+      =f.button :submit

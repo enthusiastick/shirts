@@ -1,0 +1,24 @@
+.row
+  .small-12.columns
+    %h1.text-center
+      =@shirt.name
+      =link_to @shirt, class: "float-right", data: { confirm: "Are you sure?" }, method: :delete do
+        =fa_icon "trash-o"
+    %nav{"aria-label" => "You are here:", :role => "navigation"}
+      %ul.breadcrumbs.callout
+        %li
+          =link_to "Shirts", shirts_path
+        %li
+          %span.show-for-sr Current:
+          =@shirt.name
+    .row
+      .small-12.medium-5.small-centered.columns
+        .callout
+          %h3
+            =link_to edit_shirt_path(@shirt), class: "float-right" do
+              =fa_icon "pencil-square-o"
+          -unless @shirt.picture.blank?
+            =image_tag @shirt.picture.url, alt: "#{@shirt.name}: #{@shirt.description}", class: "thumbnail"
+          -unless @shirt.description.empty?
+            %p= @shirt.description
+
