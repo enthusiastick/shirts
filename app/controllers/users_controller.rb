@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(email: "eben.lowe@gmail.com", oauth_uid: session[:auth]["uid"])
+    @user = User.new(oauth_uid: session[:auth]["uid"])
   end
 
   def show

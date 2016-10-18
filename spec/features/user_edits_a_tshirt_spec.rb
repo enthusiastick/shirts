@@ -19,7 +19,7 @@ feature "User edits a t-shirt" do
       login_with_facebook
       visit shirt_path(shirt)
 
-      expect(page).to_not have_content("Edit.")
+      expect(page).to_not have_content("Edit")
       expect(page).to have_content("You are not authorized to view this record.")
     end
   end
