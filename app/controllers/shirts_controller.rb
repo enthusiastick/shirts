@@ -1,7 +1,10 @@
 class ShirtsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     @shirt = Shirt.new(shirt_params)
+    @shirt.user = current_user
     if @shirt.save
       flash[:success] = "Shirt created."
       redirect_to @shirt
@@ -13,6 +16,7 @@ class ShirtsController < ApplicationController
 
   def destroy
     @shirt = Shirt.find(params[:id])
+    authorize_object_owner(@shirt)
     if @shirt.destroy
       flash[:success] = "Shirt deleted."
       redirect_to shirts_path
@@ -24,10 +28,11 @@ class ShirtsController < ApplicationController
 
   def edit
     @shirt = Shirt.find(params[:id])
+    authorize_object_owner(@shirt)
   end
 
   def index
-    @shirts = Shirt.order(:name)
+    @shirts = current_user.shirts.order(:name)
   end
 
   def new
@@ -36,10 +41,12 @@ class ShirtsController < ApplicationController
 
   def show
     @shirt = Shirt.find(params[:id])
+    authorize_object_owner(@shirt)
   end
 
   def update
     @shirt = Shirt.find(params[:id])
+    authorize_object_owner(@shirt)
     if @shirt.update(shirt_params)
       flash[:success] = "Shirt updated."
       redirect_to @shirt

@@ -1,0 +1,9 @@
+.row
+  .small-12.columns
+    %h1.text-center Register
+    .row
+      .small-12.medium-5.small-centered.columns
+        =simple_form_for @user do |f|
+          =f.input :name, label: false, placeholder: "UserName"
+          =f.button :submit
+

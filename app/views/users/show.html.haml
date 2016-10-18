@@ -1,0 +1,17 @@
+.row
+  .small-12.medium-5.small-centered.columns
+    .callout
+      %h1.text-center
+        =fa_icon "user"
+        =@user.name
+      %p
+        %strong Member Since:
+        =distance_of_time_in_words_to_now(@user.created_at)
+        ago
+      %p
+        %strong Sign In Count:
+        =@user.sign_in_count
+      %p
+        %strong Last Sign In:
+        =distance_of_time_in_words_to_now(@user.last_signed_in_at)
+        ago

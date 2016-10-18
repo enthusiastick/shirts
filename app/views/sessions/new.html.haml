@@ -1,0 +1,9 @@
+.row
+  .small-12.columns
+    %h1.text-center Sign In
+    .row
+      .small-12.medium-5.small-centered.columns
+        .text-center
+          =link_to auth_path(:facebook), class: "button large" do
+            =fa_icon "facebook-official"
+            Sign In With Facebook
