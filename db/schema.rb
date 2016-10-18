@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161017202629) do
     t.integer  "sign_in_count",     default: 0
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
     t.index ["oauth_uid"], name: "index_users_on_oauth_uid", unique: true, using: :btree
   end
 

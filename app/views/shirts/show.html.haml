@@ -15,7 +15,7 @@
       .small-12.medium-5.small-centered.columns
         .callout
           %h3
-            =link_to edit_shirt_path(@shirt), class: "float-right" do
+            =link_to edit_shirt_path(@shirt), class: "float-right", id: "edit_shirt" do
               =fa_icon "pencil-square-o"
           -unless @shirt.picture.blank?
             =image_tag @shirt.picture.url, alt: "#{@shirt.name}: #{@shirt.description}", class: "thumbnail"
