@@ -18,8 +18,11 @@ gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "capybara"
   gem "dotenv-rails"
+  gem "launchy"
   gem "pry-rails"
+  gem "rspec-rails"
 end
 
 group :development do
