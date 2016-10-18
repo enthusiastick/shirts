@@ -20,4 +20,8 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def new
+    redirect_to shirts_path if user_signed_in?
+  end
+
 end

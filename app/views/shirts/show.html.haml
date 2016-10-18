@@ -17,6 +17,11 @@
           %h3
             =link_to edit_shirt_path(@shirt), class: "float-right", id: "edit_shirt" do
               =fa_icon "pencil-square-o"
+          -if @shirt.last_worn_at.present?
+            %p
+              %strong Last Worn:
+              =distance_of_time_in_words_to_now(@shirt.last_worn_at)
+              ago
           -unless @shirt.picture.blank?
             =image_tag @shirt.picture.url, alt: "#{@shirt.name}: #{@shirt.description}", class: "thumbnail"
           -unless @shirt.description.empty?

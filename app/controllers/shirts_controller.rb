@@ -5,6 +5,7 @@ class ShirtsController < ApplicationController
   def create
     @shirt = Shirt.new(shirt_params)
     @shirt.user = current_user
+    @shirt.touch(:last_worn_at) if params[:shirt][:last_worn_today] == "1"
     if @shirt.save
       flash[:success] = "Shirt created."
       redirect_to @shirt
@@ -48,6 +49,7 @@ class ShirtsController < ApplicationController
     @shirt = Shirt.find(params[:id])
     authorize_object_owner(@shirt)
     if @shirt.update(shirt_params)
+      @shirt.touch(:last_worn_at) if params[:shirt][:last_worn_today] == "1"
       flash[:success] = "Shirt updated."
       redirect_to @shirt
     else

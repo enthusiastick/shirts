@@ -4,4 +4,9 @@
       =f.input :name, label: false, placeholder: "Name"
       =f.file_field :picture
       =f.input :description, input_html: { style: "height: 8rem;" }, label: false, placeholder: "Description"
+      .row
+        .small-1.column
+          =f.input :last_worn_today, as: :boolean, label: false
+        .small-11.columns
+          =f.label "Wearing today?"
       =f.button :submit
