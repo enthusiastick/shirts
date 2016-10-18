@@ -20,16 +20,18 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "capybara"
   gem "dotenv-rails"
+  gem "factory_girl_rails"
   gem "launchy"
   gem "pry-rails"
   gem "rspec-rails"
 end
 
 group :development do
-  gem "web-console"
+  gem "better_errors"
   gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "web-console"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
