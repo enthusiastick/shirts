@@ -10,7 +10,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/#{model.user.name}/#{model.id.to_s}/"
+    "#{Rails.env}/uploads/#{model.user.name}/#{model.id.to_s}/"
   end
 
 end
